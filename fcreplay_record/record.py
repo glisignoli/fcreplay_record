@@ -51,7 +51,7 @@ def cleanup_tasks():
     subprocess.run(['/usr/bin/pulseaudio', '-k'])
 
 
-def main(fc_challange=None, fc_time=None, kill_time=None, ggpo_path=None, fcreplay_path=None):
+def record(fc_challange=None, fc_time=None, kill_time=None, ggpo_path=None, fcreplay_path=None):
     logging.info('Starting pulseaudio')
     subprocess.run(['pulseaudio', '--daemon'], env={"DISPLAY": ":0"})
 
@@ -159,7 +159,7 @@ def main(fc_challange=None, fc_time=None, kill_time=None, ggpo_path=None, fcrepl
         time.sleep(1)
 
 
-if __name__ == "__main__":
+def console():
     parser = argparse.ArgumentParser(description="Record fightcade replays")
     parser.add_argument('challenge_id', help="Fightcade challenge id")
     parser.add_argument('fc_time', help="Length of time in seconds to record")
@@ -168,9 +168,12 @@ if __name__ == "__main__":
     parser.add_argument('ggpo_path', help='Path to ggpo')
     parser.add_argument('fcreplay_path', help='Path to fcreplay')
     args = parser.parse_args()
-    main(
+    record(
         fc_challange=args.challenge_id,
         fc_time=int(args.fc_time),
         kill_time=int(args.kill_timeout),
         ggpo_path=args.ggpo_path,
         fcreplay_path=args.fcreplay_path)
+
+if __name__ == "__main__":
+    console()
