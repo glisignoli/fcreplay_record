@@ -75,9 +75,9 @@ def record(fc_challange=None, fc_time=None, kill_time=None, ggpo_path=None, fcre
     #     1. Check to see if there are screen updates
 
     empty_capture = Image.open(pkg_resources.resource_filename(
-        'fcreplay-record', 'data/empty_capture.png')).convert('RGB')
+        'fcreplay_record', 'data/empty_capture.png')).convert('RGB')
     ggpo_capture = Image.open(pkg_resources.resource_filename(
-        'fcreplay-record', 'data/ggpo_capture.png')).convert('RGB')
+        'fcreplay_record', 'data/ggpo_capture.png')).convert('RGB')
 
     empty_capture.save('empty_capture.png')
     ggpo_capture.save('ggpo_capture.png')
