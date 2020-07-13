@@ -7,7 +7,7 @@ setup(name='fcreplay_record',
       author_email='glisignoli@gmail.com',
       license='GPL3',
       packages=['fcreplay_record'],
-      package_data={'fcreplay': [
+      package_data={'fcreplay_record': [
           'data/*',
       ]},
       entry_points = {
